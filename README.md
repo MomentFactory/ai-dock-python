@@ -1,4 +1,4 @@
-[![Docker Build](https://github.com/ai-dock/python/actions/workflows/docker-build.yml/badge.svg)](https://github.com/ai-dock/python/actions/workflows/docker-build.yml)
+[![Docker Build](https://github.com/MomentFactory/ai-dock-python/actions/workflows/docker-build.yml/badge.svg)](https://github.com/MomentFactory/ai-dock-python/actions/workflows/docker-build.yml)
 
 # AI-Dock + Python
 
