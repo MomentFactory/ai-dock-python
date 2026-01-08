@@ -1,5 +1,5 @@
 # For build automation - Allows building from any ai-dock base image
-ARG IMAGE_BASE="ghcr.io/MomentFactory/ai-dock-base-image:v2-cuda-12.9.1-base-24.04"
+ARG IMAGE_BASE="ghcr.io/momentfactory/ai-dock-base-image:v2-cuda-12.9.1-base-24.04"
 FROM ${IMAGE_BASE}
 
 LABEL org.opencontainers.image.source https://github.com/MomentFactory/ai-dock-python
