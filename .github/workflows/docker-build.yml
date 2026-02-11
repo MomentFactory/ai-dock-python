@@ -100,6 +100,9 @@ jobs:
         - {latest: "false", python: "3.12", venv: "python_312", cuda: "12.9.1-base"}
         - {latest: "false", python: "3.12", venv: "python_312", cuda: "12.9.1-runtime"}
         - {latest: "false", python: "3.12", venv: "python_312", cuda: "12.9.1-devel"}
+        - {latest: "false", python: "3.12", venv: "python_312", cuda: "13.0.2-base"}
+        - {latest: "false", python: "3.12", venv: "python_312", cuda: "13.0.2-runtime"}
+        - {latest: "false", python: "3.12", venv: "python_312", cuda: "13.0.2-devel"}
         
     steps:
       -
@@ -145,7 +148,7 @@ jobs:
         run: |
           img_path_ghcr="ghcr.io/${{ env.REPO_NAMESPACE }}/${{ env.REPO_NAME }}"
           img_path_dhub="${{ secrets.DOCKERHUB_USER }}/${{ env.REPO_NAME }}-cuda"
-          base_tag="${{ matrix.build.python }}-v2-cuda-${{ matrix.build.cuda }}-${{ env.UBUNTU_VERSION }}"
+          base_tag="v2-cuda-${{ matrix.build.cuda }}-ubuntu${{ env.UBUNTU_VERSION }}-py${{ matrix.build.python }}"
 
           TAGS="${img_path_ghcr}:${base_tag}"
           if [[ ${{ matrix.build.latest }} == "true" ]]; then
@@ -166,7 +169,7 @@ jobs:
         with:
           context: build
           build-args: |
-            IMAGE_BASE=ghcr.io/momentfactory/ai-dock-base-image:v2-cuda-${{ matrix.build.cuda }}-${{ env.UBUNTU_VERSION }}
+            IMAGE_BASE=ghcr.io/momentfactory/ai-dock-base-image:v2-cuda-${{ matrix.build.cuda }}-ubuntu${{ env.UBUNTU_VERSION }}
             PYTHON_VERSION=${{ matrix.build.python }}
             PYTHON_VENV_NAME=${{ matrix.build.venv }}
           push: true
